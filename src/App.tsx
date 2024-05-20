@@ -2,6 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import Gallery from "./components/Gallery";
 import Home from "./components/Home";
 import Menu from "./components/Menu";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -34,18 +35,6 @@ function App() {
                   </div>
 
                   <Menu />
-
-                  {/* <ul className="site-menu js-clone-nav d-none d-lg-block">
-                    <li className="active">
-                      <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                      <Link to="/gallery">Galeria</Link>
-                    </li>
-                    <li>
-                      <Link to="/contact">Kontakt</Link>
-                    </li>
-                  </ul> */}
                 </nav>
               </div>
             </div>
@@ -65,6 +54,7 @@ function App() {
       <Routes>
         <Route path="/" Component={Home} />
         <Route path="/gallery" Component={Gallery} />
+        <Route path="/contact" Component={Contact} />
       </Routes>
 
       <footer className="site-footer">
