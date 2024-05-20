@@ -1,3 +1,4 @@
+import { Link, Route, Routes } from "react-router-dom";
 import Gallery from "./components/Gallery";
 import Home from "./components/Home";
 
@@ -33,13 +34,16 @@ function App() {
 
                   <ul className="site-menu js-clone-nav d-none d-lg-block">
                     <li className="active">
-                      <a href="index.html">Home</a>
+                      {/* <a href="index.html">Home</a> */}
+                      <Link to="/">Home</Link>
                     </li>
                     <li>
-                      <a href="gallery.html">Galeria</a>
+                      {/* <a href="gallery.html">Galeria</a> */}
+                      <Link to="/gallery">Galeria</Link>
                     </li>
                     <li>
-                      <a href="contact.html">Kontakt</a>
+                      {/* <a href="contact.html">Kontakt</a> */}
+                      <Link to="/contact">Kontakt</Link>
                     </li>
                   </ul>
                 </nav>
@@ -58,7 +62,10 @@ function App() {
         <div className="site-mobile-menu-body"></div>
       </div>
 
-      <Home />
+      <Routes>
+        <Route path="/" Component={Home} />
+        <Route path="/gallery" Component={Gallery} />
+      </Routes>
 
       <footer className="site-footer">
         <div className="container">
