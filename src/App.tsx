@@ -1,7 +1,5 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-import "./App.css";
-// import { indexImage } from "../public/images/hero_bg_1.jpg";
 
 function App() {
   return (
