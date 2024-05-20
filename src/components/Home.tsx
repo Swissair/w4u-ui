@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
     <>
@@ -21,9 +23,9 @@ const Home = () => {
               </h1>
               <p className="mb-5">Unieście, Sea & Lake, ul. Sosnowy Las 15</p>
               <p>
-                <a href="./gallery.html" className="btn btn-primary px-5 py-3">
+                <Link to="/gallery" className="btn btn-primary px-5 py-3">
                   Zdjęcia
-                </a>
+                </Link>
               </p>
             </div>
           </div>

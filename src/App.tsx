@@ -1,6 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom";
 import Gallery from "./components/Gallery";
 import Home from "./components/Home";
+import Menu from "./components/Menu";
 
 function App() {
   return (
@@ -32,20 +33,19 @@ function App() {
                     </a>
                   </div>
 
-                  <ul className="site-menu js-clone-nav d-none d-lg-block">
+                  <Menu />
+
+                  {/* <ul className="site-menu js-clone-nav d-none d-lg-block">
                     <li className="active">
-                      {/* <a href="index.html">Home</a> */}
                       <Link to="/">Home</Link>
                     </li>
                     <li>
-                      {/* <a href="gallery.html">Galeria</a> */}
                       <Link to="/gallery">Galeria</Link>
                     </li>
                     <li>
-                      {/* <a href="contact.html">Kontakt</a> */}
                       <Link to="/contact">Kontakt</Link>
                     </li>
-                  </ul>
+                  </ul> */}
                 </nav>
               </div>
             </div>
