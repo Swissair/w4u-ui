@@ -1,9 +1,11 @@
+import Copyright from "./Copyright";
+
 const Footer = () => {
   return (
     <footer className="site-footer">
       <div className="container">
         <div className="row">
-          <div className="col-lg-4">
+          {/* <div className="col-lg-4">
             <div className="mb-5">
               <h3 className="footer-heading mb-4">About Apart</h3>
               <p>
@@ -36,8 +38,8 @@ const Footer = () => {
                 </div>
               </form>
             </div>
-          </div>
-          <div className="col-lg-4 mb-5 mb-lg-0">
+          </div> */}
+          {/* <div className="col-lg-4 mb-5 mb-lg-0">
             <div className="row mb-5">
               <div className="col-md-12">
                 <h3 className="footer-heading mb-4">Navigations</h3>
@@ -96,9 +98,9 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="col-lg-4 mb-5 mb-lg-0">
+          {/* <div className="col-lg-4 mb-5 mb-lg-0">
             <div className="mb-5">
               <h3 className="footer-heading mb-4">Watch Live Streaming</h3>
 
@@ -118,27 +120,10 @@ const Footer = () => {
                 </figure>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
-        <div className="row pt-5 mt-5 text-center">
-          <div className="col-md-12">
-            <p>
-              {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
-              Copyright &copy;
-              <script
-                data-cfasync="false"
-                src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-              ></script>
-              <script>document.write(new Date().getFullYear());</script> All
-              rights reserved | This template is made with{" "}
-              <i className="icon-heart text-danger" aria-hidden="true"></i> by{" "}
-              <a href="https://colorlib.com" target="_blank">
-                Colorlib
-              </a>
-              {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
-            </p>
-          </div>
-        </div>
+
+        <Copyright />
       </div>
     </footer>
   );
