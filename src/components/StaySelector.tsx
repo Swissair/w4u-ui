@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { addDays } from "date-fns";
 import { pl } from "date-fns/locale";
 import { DateRange } from "react-date-range";
+import axios from "axios";
+
 const StaySelector = () => {
+  const baseURL = "https://localhost:7229/weatherforecast";
+
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -10,6 +14,12 @@ const StaySelector = () => {
       key: "selection",
     },
   ]);
+
+  useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      alert(JSON.stringify(response.data[0]));
+    });
+  }, []);
 
   return (
     <div className="site-section">
