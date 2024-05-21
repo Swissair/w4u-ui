@@ -1,3 +1,7 @@
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
+import StaySelector from "./StaySelector";
+
 const Contact = () => {
   return (
     <>
@@ -23,6 +27,26 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      <StaySelector />
+
+      {/* <div className="site-section">
+        <div className="container">
+          <div className="row">
+            <DateRange
+              minDate={new Date()}
+              locale={pl}
+              months={3}
+              direction="horizontal"
+              editableDateInputs={true}
+              onChange={(item) => setState([item.selection])}
+              moveRangeOnFirstSelection={false}
+              ranges={state}
+              l
+            />
+          </div>
+        </div>
+      </div> */}
 
       <div className="site-section border-bottom">
         <div className="container">
