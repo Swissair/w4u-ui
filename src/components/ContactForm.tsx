@@ -1,6 +1,24 @@
+import { useForm } from "react-hook-form";
+import { Enquiry } from "../models/Domain";
+import apiClient from "../services/apiClient";
+
 const ContactForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data: Enquiry) => {
+    try {
+      await apiClient.post("reservation/enquire", data);
+    } catch (error) {
+      console.error("There was an error!", error);
+    }
+  };
+
   return (
-    <form action="#" className="contact-form">
+    <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
       <div className="row form-group">
         <div className="col-md-12 mb-3 mb-md-0">
           <label className="font-weight-bold" htmlFor="fullname">
@@ -11,6 +29,7 @@ const ContactForm = () => {
             id="fullname"
             className="form-control"
             placeholder="Imię i Nazwisko"
+            {...register("fullname", { required: true })}
           />
         </div>
       </div>
@@ -24,6 +43,13 @@ const ContactForm = () => {
             id="email"
             className="form-control"
             placeholder="Adres email"
+            {...register("email", {
+              required: true,
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: "Entered value does not match email format",
+              },
+            })}
           />
         </div>
       </div>
@@ -37,6 +63,7 @@ const ContactForm = () => {
             id="subject"
             className="form-control"
             placeholder="Tytuł"
+            {...register("subject", { required: true })}
           />
         </div>
       </div>
@@ -53,6 +80,9 @@ const ContactForm = () => {
             rows={5}
             className="form-control"
             placeholder="Jestem zainteresowany pobytem od ... do ..."
+            {...register("message", {
+              required: true,
+            })}
           ></textarea>
         </div>
       </div>

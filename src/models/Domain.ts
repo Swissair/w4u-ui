@@ -13,3 +13,11 @@ export interface ReservationSettings {
   minDaysOfStay: number;
   datesUnavailable: Date[];
 }
+
+export interface Enquiry {
+  fullName: string;
+  email: string;
+  title: string;
+  message: string;
+  dateRange: IRange;
+}
