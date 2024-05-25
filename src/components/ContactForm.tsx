@@ -11,7 +11,14 @@ const ContactForm = () => {
 
   const onSubmit = async (data: Enquiry) => {
     try {
-      await apiClient.post("reservation/enquire", data);
+      await apiClient.post("reservation/enquire", {
+        ...data,
+        dateRange: {
+          startDate: "2024-05-25T21:24:03.353Z",
+          endDate: "2024-05-25T21:24:03.353Z",
+          key: "selection",
+        },
+      });
     } catch (error) {
       console.error("There was an error!", error);
     }
