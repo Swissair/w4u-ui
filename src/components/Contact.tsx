@@ -1,8 +1,11 @@
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import StaySelector from "./StaySelector";
+import ContactForm from "./ContactForm";
 
 const Contact = () => {
+  const sendEnquiry = async () => {};
+
   return (
     <>
       <div
@@ -30,95 +33,11 @@ const Contact = () => {
 
       <StaySelector />
 
-      {/* <div className="site-section">
-        <div className="container">
-          <div className="row">
-            <DateRange
-              minDate={new Date()}
-              locale={pl}
-              months={3}
-              direction="horizontal"
-              editableDateInputs={true}
-              onChange={(item) => setState([item.selection])}
-              moveRangeOnFirstSelection={false}
-              ranges={state}
-              l
-            />
-          </div>
-        </div>
-      </div> */}
-
       <div className="site-section border-bottom">
         <div className="container">
           <div className="row">
             <div className="col-md-12 col-lg-7 mb-5">
-              <form action="#" className="contact-form">
-                <div className="row form-group">
-                  <div className="col-md-12 mb-3 mb-md-0">
-                    <label className="font-weight-bold" for="fullname">
-                      Imię i Nazwisko
-                    </label>
-                    <input
-                      type="text"
-                      id="fullname"
-                      className="form-control"
-                      placeholder="Imię i Nazwisko"
-                    />
-                  </div>
-                </div>
-                <div className="row form-group">
-                  <div className="col-md-12">
-                    <label className="font-weight-bold" for="email">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="form-control"
-                      placeholder="Adres email"
-                    />
-                  </div>
-                </div>
-                <div className="row form-group">
-                  <div className="col-md-12">
-                    <label className="font-weight-bold" for="email">
-                      Tytuł
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      className="form-control"
-                      placeholder="Tytuł"
-                    />
-                  </div>
-                </div>
-
-                <div className="row form-group">
-                  <div className="col-md-12">
-                    <label className="font-weight-bold" for="message">
-                      Wiadomość
-                    </label>
-                    <textarea
-                      name="message"
-                      id="message"
-                      cols="30"
-                      rows="5"
-                      className="form-control"
-                      placeholder="Jestem zainteresowany pobytem od ... do ..."
-                    ></textarea>
-                  </div>
-                </div>
-
-                <div className="row form-group">
-                  <div className="col-md-12">
-                    <input
-                      type="submit"
-                      value="Wyślij wiadomość"
-                      className="btn btn-primary py-3 px-4"
-                    />
-                  </div>
-                </div>
-              </form>
+              <ContactForm />
             </div>
 
             <div className="col-lg-4 ml-auto">
