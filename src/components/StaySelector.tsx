@@ -7,7 +7,11 @@ import { getDaysWithinRange } from "../models/DateHelpers";
 import apiClient from "../services/apiClient";
 import { isMobile } from "react-device-detect";
 
-const StaySelector = () => {
+export interface Props {
+  setValue;
+}
+
+const StaySelector = (props: Props) => {
   const [selectedRange, setSelectedRange] = useState([
     {
       startDate: new Date(),
@@ -43,6 +47,7 @@ const StaySelector = () => {
     } else {
       setIsSelectionValid(true);
       setSelectedRange([range]);
+      props.setValue("dateRange", range);
     }
   };
 

@@ -1,10 +1,25 @@
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import StaySelector from "./StaySelector";
-import ContactForm from "./ContactForm";
+import { useForm } from "react-hook-form";
+import apiClient from "../services/apiClient";
+import { Enquiry } from "../models/Domain";
 
 const Contact = () => {
-  const sendEnquiry = async () => {};
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data: Enquiry) => {
+    try {
+      await apiClient.post("reservation/enquire", data);
+    } catch (error) {
+      console.error("There was an error!", error);
+    }
+  };
 
   return (
     <>
@@ -31,13 +46,91 @@ const Contact = () => {
         </div>
       </div>
 
-      <StaySelector />
+      <StaySelector setValue={setValue} />
 
       <div className="site-section border-bottom">
         <div className="container">
           <div className="row">
             <div className="col-md-12 col-lg-7 mb-5">
-              <ContactForm />
+              <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
+                <div className="row form-group">
+                  <div className="col-md-12 mb-3 mb-md-0">
+                    <label className="font-weight-bold" htmlFor="fullname">
+                      Imię i Nazwisko
+                    </label>
+                    <input
+                      type="text"
+                      id="fullname"
+                      className="form-control"
+                      placeholder="Imię i Nazwisko"
+                      {...register("fullname", { required: true })}
+                    />
+                  </div>
+                </div>
+                <div className="row form-group">
+                  <div className="col-md-12">
+                    <label className="font-weight-bold" htmlFor="email">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="form-control"
+                      placeholder="Adres email"
+                      {...register("email", {
+                        required: true,
+                        pattern: {
+                          value: /\S+@\S+\.\S+/,
+                          message: "Entered value does not match email format",
+                        },
+                      })}
+                    />
+                  </div>
+                </div>
+                <div className="row form-group">
+                  <div className="col-md-12">
+                    <label className="font-weight-bold" htmlFor="subject">
+                      Tytuł
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      className="form-control"
+                      placeholder="Tytuł"
+                      {...register("subject", { required: true })}
+                    />
+                  </div>
+                </div>
+
+                <div className="row form-group">
+                  <div className="col-md-12">
+                    <label className="font-weight-bold" htmlFor="message">
+                      Wiadomość
+                    </label>
+                    <textarea
+                      name="message"
+                      id="message"
+                      cols={30}
+                      rows={5}
+                      className="form-control"
+                      placeholder="Jestem zainteresowany pobytem od ... do ..."
+                      {...register("message", {
+                        required: true,
+                      })}
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div className="row form-group">
+                  <div className="col-md-12">
+                    <input
+                      type="submit"
+                      value="Wyślij wiadomość"
+                      className="btn btn-primary py-3 px-4"
+                    />
+                  </div>
+                </div>
+              </form>
             </div>
 
             <div className="col-lg-4 ml-auto">
