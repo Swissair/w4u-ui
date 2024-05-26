@@ -40,7 +40,7 @@ const Contact = () => {
               data-aos-delay="400"
             >
               <h1 className="text-white">Skontaktuj się</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <p>Sprawdź dostępność apartamentu i zarezerwuj pobyt</p>
             </div>
           </div>
         </div>
